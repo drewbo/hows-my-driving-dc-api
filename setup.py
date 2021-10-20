@@ -1,45 +1,31 @@
-import setuptools
+"""Setup for hows-my-driving-dc-api"""
 
+from setuptools import find_packages, setup
 
-with open("README.md") as fp:
-    long_description = fp.read()
+# Runtime requirements.
+inst_reqs = [
+    "fastapi",
+]
 
+extra_reqs = {
+    "dev": ["pytest"],
+    "server": ["uvicorn"],
+    "deploy": [
+        "docker",
+        "aws-cdk.core==1.128.0",
+        "aws-cdk.aws_lambda==1.128.0",
+        "aws-cdk.aws_apigateway==1.128.0",
+    ],
+    "test": ["pytest"],
+}
 
-setuptools.setup(
-    name="hows_my_driving_dc_api",
+setup(
+    name="hows-my-driving-dc-api",
     version="0.1.0",
-
-    description="Find dangerous drivers in DC",
-    long_description=long_description,
-    long_description_content_type="text/markdown",
-
-    author="author",
-
-    package_dir={"": "hows_my_driving_dc_api"},
-    packages=setuptools.find_packages(where="hows_my_driving_dc_api"),
-
-    install_requires=[
-        "aws-cdk.core==1.111.0",
-        "aws-cdk.aws_apigatewayv2=1.111.0",
-        "aws-cdk.aws_lambda==1.111.0",
-    ],
-
-    python_requires=">=3.6",
-
-    classifiers=[
-        "Development Status :: 4 - Beta",
-
-        "Intended Audience :: Developers",
-
-        "Programming Language :: JavaScript",
-        "Programming Language :: Python :: 3 :: Only",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.8",
-
-        "Topic :: Software Development :: Code Generators",
-        "Topic :: Utilities",
-
-        "Typing :: Typed",
-    ],
+    python_requires=">=3",
+    description=u"""Find dangerous driving in DC""",
+    packages=find_packages(exclude=["tests"]),
+    zip_safe=False,
+    install_requires=inst_reqs,
+    extras_require=extra_reqs,
 )
