@@ -5,6 +5,9 @@ from setuptools import find_packages, setup
 # Runtime requirements.
 inst_reqs = [
     "fastapi",
+    "pyppeteer",
+    "pyppeteer_stealth",
+    "boto3",
 ]
 
 extra_reqs = {
@@ -13,6 +16,8 @@ extra_reqs = {
     "deploy": [
         "docker",
         "aws-cdk.core==1.128.0",
+        "aws-cdk.aws_s3==1.128.0",
+        "aws-cdk.aws_iam==1.128.0",
         "aws-cdk.aws_lambda==1.128.0",
         "aws-cdk.aws_apigateway==1.128.0",
     ],
