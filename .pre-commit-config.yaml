@@ -22,7 +22,8 @@ repos:
                   # E501 let black handle all line length decisions
                   # W503 black conflicts with "line break before operator" rule
                   # E203 black conflicts with "whitespace before ':'" rule
-                  '--ignore=E501,W503,E203']
+                  # W605 doesn't like JavaScript regex
+                  '--ignore=E501,W503,E203,W605']
     -
         repo: 'https://github.com/chewse/pre-commit-mirrors-pydocstyle'
         # 2.1.1

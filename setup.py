@@ -7,6 +7,8 @@ inst_reqs = [
     "fastapi",
     "pyppeteer",
     "pyppeteer_stealth",
+    "pytesseract",
+    "pillow",
     "boto3",
 ]
 
